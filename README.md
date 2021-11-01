@@ -1,6 +1,6 @@
 ## Permission
 
-Special Permission for Frappe
+Special permission manager for Frappe Framework
 
 #### License
 
