@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2021-11-02 00:48:18.536973",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "docname",
+  "filed",
+  "share",
+  "permission",
+  "assign"
+ ],
+ "fields": [
+  {
+   "fieldname": "docname",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "DocType",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "description": "\"Table MultiSelect\" field's name that has the option \"Permission Detail\"",
+   "fieldname": "filed",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Table MultiSelect Field Name",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "permission",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Create User Permission"
+  },
+  {
+   "default": "0",
+   "fieldname": "assign",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Assign To USer"
+  },
+  {
+   "default": "1",
+   "fieldname": "share",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Share With User"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-11-02 00:58:44.187741",
+ "modified_by": "Administrator",
+ "module": "Permission",
+ "name": "Permission Rule Doctypes",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
