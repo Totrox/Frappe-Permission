@@ -6,29 +6,13 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "docname",
-  "filed",
+  "doctype_name",
+  "field",
   "share",
   "permission",
   "assign"
  ],
  "fields": [
-  {
-   "fieldname": "docname",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "DocType",
-   "options": "DocType",
-   "reqd": 1
-  },
-  {
-   "description": "\"Table MultiSelect\" field's name that has the option \"Permission Detail\"",
-   "fieldname": "filed",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Table MultiSelect Field Name",
-   "reqd": 1
-  },
   {
    "default": "0",
    "fieldname": "permission",
@@ -41,7 +25,7 @@
    "fieldname": "assign",
    "fieldtype": "Check",
    "in_list_view": 1,
-   "label": "Assign To USer"
+   "label": "Assign To User"
   },
   {
    "default": "1",
@@ -49,12 +33,28 @@
    "fieldtype": "Check",
    "in_list_view": 1,
    "label": "Share With User"
+  },
+  {
+   "description": "\"Table MultiSelect\" field's name that has the option \"Permission Detail\"",
+   "fieldname": "field",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Table MultiSelect Field Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "doctype_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "DocType",
+   "options": "DocType",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-11-02 00:58:44.187741",
+ "modified": "2021-11-02 05:17:47.131123",
  "modified_by": "Administrator",
  "module": "Permission",
  "name": "Permission Rule Doctypes",

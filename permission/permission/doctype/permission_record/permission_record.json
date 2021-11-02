@@ -1,0 +1,118 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2021-11-02 02:30:59.793644",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "user_name",
+  "permission_rule",
+  "doctype_name",
+  "docname",
+  "column_break_6",
+  "share",
+  "permission",
+  "assign",
+  "row_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "permission_rule",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Permission Rule",
+   "options": "Permission Rule",
+   "reqd": 1
+  },
+  {
+   "fieldname": "doctype_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "DocType",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "docname",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "DocName",
+   "options": "doctype_name",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "share",
+   "fieldtype": "Check",
+   "label": "Share With User"
+  },
+  {
+   "default": "0",
+   "fieldname": "permission",
+   "fieldtype": "Check",
+   "label": "Create User Permission"
+  },
+  {
+   "default": "0",
+   "fieldname": "assign",
+   "fieldtype": "Check",
+   "label": "Assign To User"
+  },
+  {
+   "fetch_from": "user.full_name",
+   "fieldname": "user_name",
+   "fieldtype": "Read Only",
+   "label": "User Name"
+  },
+  {
+   "fieldname": "row_id",
+   "fieldtype": "Data",
+   "label": "Row ID",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-11-02 05:17:32.313611",
+ "modified_by": "Administrator",
+ "module": "Permission",
+ "name": "Permission Record",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "user_name",
+ "track_changes": 1
+}

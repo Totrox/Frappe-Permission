@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "PER-.######",
+ "autoname": "field:title",
  "creation": "2021-11-02 00:29:23.295263",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -25,6 +25,7 @@
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Title",
+   "no_copy": 1,
    "reqd": 1,
    "unique": 1
   },
@@ -36,6 +37,7 @@
    "fieldname": "users",
    "fieldtype": "Table",
    "label": "Users",
+   "no_copy": 1,
    "options": "Permission Rule Users",
    "reqd": 1
   },
@@ -43,7 +45,8 @@
    "fieldname": "description",
    "fieldtype": "Small Text",
    "in_preview": 1,
-   "label": "Description"
+   "label": "Description",
+   "no_copy": 1
   },
   {
    "fieldname": "column_break_3",
@@ -62,14 +65,14 @@
   {
    "fieldname": "doctypes",
    "fieldtype": "Table",
-   "label": "Doctypes",
+   "label": "DocTypes",
    "options": "Permission Rule Doctypes",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-11-02 00:50:41.551593",
+ "modified": "2021-11-02 01:56:17.554534",
  "modified_by": "Administrator",
  "module": "Permission",
  "name": "Permission Rule",

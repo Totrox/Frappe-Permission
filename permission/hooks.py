@@ -89,13 +89,12 @@ app_license = "GNU General Public License (v3)"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+    "*": {
+        "validate": "permission.controller.process_permissions",
+        "on_trash": "permission.controller.process_permissions",
+    }
+}
 
 # Scheduled Tasks
 # ---------------
