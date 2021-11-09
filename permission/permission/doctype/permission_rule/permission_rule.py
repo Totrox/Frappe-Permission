@@ -45,6 +45,8 @@ class PermissionRule(Document):
                     )
 
     def controle_disabled(self):
+        if self.is_new():
+            return
         old_doc = self.get_doc_before_save()
         if self.disabled != old_doc.disabled:
             if self.disabled:
