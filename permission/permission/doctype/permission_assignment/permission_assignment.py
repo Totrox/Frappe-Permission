@@ -19,9 +19,10 @@ class PermissionAssignment(Document):
     def validate_role(self):
         user_assignments_list = frappe.get_all(
             "Permission Assignment",
-            filters={"user": self.user, "docstatus": 1},
+            filters={"user": self.user, "docstatus": 1, "name": ["!=", self.name]},
             fields=["name", "role"],
         )
+        frappe.msgprint(str(user_assignments_list))
         for assignment in user_assignments_list:
             if frappe.db.exists("Role Level Policy", assignment.role):
                 overlappable = frappe.get_value(
