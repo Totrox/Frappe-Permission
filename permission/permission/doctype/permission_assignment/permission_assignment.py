@@ -22,7 +22,6 @@ class PermissionAssignment(Document):
             filters={"user": self.user, "docstatus": 1, "name": ["!=", self.name]},
             fields=["name", "role"],
         )
-        frappe.msgprint(str(user_assignments_list))
         for assignment in user_assignments_list:
             if frappe.db.exists("Role Level Policy", assignment.role):
                 overlappable = frappe.get_value(
@@ -36,9 +35,13 @@ class PermissionAssignment(Document):
             policy = frappe.get_doc("Role Level Policy", self.role)
             if policy.number_of_actors and int(policy.number_of_actors) > 0:
                 role_assignments_list = frappe.get_all(
-                    "Permission Assignment", filters={"role": self.role, "docstatus": 1}
+                    "Permission Assignment",
+                    filters={
+                        "role": self.role,
+                        "docstatus": 1,
+                    },
                 )
-                if len(role_assignments_list) + 1 > int(policy.number_of_actors):
+                if len(role_assignments_list) > int(policy.number_of_actors):
                     frappe.throw(
                         _("Role {0} allowed only for {1} user(s)").format(
                             self.role, policy.number_of_actors
