@@ -67,7 +67,6 @@ class PermissionRule(Document):
     def create_permissions(self):
         if self.disabled:
             return
-        frappe.msgprint(self.name)
         for doctype in self.doctypes:
             rows = frappe.get_all(
                 "Permission Detail",
@@ -79,7 +78,6 @@ class PermissionRule(Document):
                 fields=["parent", "name"],
             )
             for row in rows:
-                frappe.msgprint(str(row))
                 add_permission_record(
                     "Permission Rule",
                     self.name,

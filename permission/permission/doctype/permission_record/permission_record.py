@@ -15,7 +15,7 @@ class PermissionRecord(Document):
         self.validate_options()
 
     def validate_options(self):
-        if not self.share and not self.permission and not self.assign:
+        if not self.share and not self.permission and not self.assign and not self.role:
             frappe.throw(_("At least one option must be selected"))
 
     def after_insert(self):
@@ -46,13 +46,24 @@ class PermissionRecord(Document):
                 },
                 limit=1,
             )
-            if not duplicate_exists:
+            if len(duplicate_exists) == 0:
                 user_permission = frappe.new_doc("User Permission")
                 user_permission.user = self.user
                 user_permission.allow = self.doctype_name
                 user_permission.for_value = self.docname
                 user_permission.apply_to_all_doctypes = 1
                 user_permission.insert(ignore_permissions=True)
+        if self.role:
+            roles_list = frappe.get_all(
+                "Has Role", {"parent": self.user, "role": self.role_name}, limit=1
+            )
+            if len(roles_list) == 0:
+                role_doc = frappe.new_doc("Has Role")
+                role_doc.parent = self.user
+                role_doc.parentfield = "roles"
+                role_doc.parenttype = "User"
+                role_doc.role = self.role_name
+                role_doc.insert(ignore_permissions=True)
 
     def on_trash(self):
         if self.assign:
@@ -84,3 +95,12 @@ class PermissionRecord(Document):
                 frappe.delete_doc(
                     "User Permission", perm.name, force=1, ignore_permissions=True
                 )
+        if self.role:
+            roles_list = frappe.get_all(
+                "Has Role", {"parent": self.user, "role": self.role_name}
+            )
+            if len(roles_list) > 0:
+                for role in roles_list:
+                    frappe.delete_doc(
+                        "Has Role", role.name, force=1, ignore_permissions=True
+                    )

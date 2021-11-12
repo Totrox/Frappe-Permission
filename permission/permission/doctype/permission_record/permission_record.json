@@ -1,6 +1,6 @@
 {
  "actions": [],
- "allow_rename": 1,
+ "allow_copy": 1,
  "creation": "2021-11-02 02:30:59.793644",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -19,9 +19,9 @@
   "column_break_13",
   "ref_doctype",
   "ref_docname",
-  "doctype_name",
-  "docname",
   "section_break_12",
+  "docname",
+  "doctype_name",
   "row_id"
  ],
  "fields": [
@@ -32,6 +32,7 @@
    "in_standard_filter": 1,
    "label": "User",
    "options": "User",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -40,7 +41,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "DocType",
-   "options": "DocType"
+   "options": "DocType",
+   "read_only": 1
   },
   {
    "fieldname": "docname",
@@ -48,31 +50,36 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "DocName",
-   "options": "doctype_name"
+   "options": "doctype_name",
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "share",
    "fieldtype": "Check",
-   "label": "Share With User"
+   "label": "Share With User",
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "permission",
    "fieldtype": "Check",
-   "label": "Create User Permission"
+   "label": "Create User Permission",
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "assign",
    "fieldtype": "Check",
-   "label": "Assign To User"
+   "label": "Assign To User",
+   "read_only": 1
   },
   {
    "fetch_from": "user.full_name",
    "fieldname": "user_name",
    "fieldtype": "Read Only",
-   "label": "User Name"
+   "label": "User Name",
+   "read_only": 1
   },
   {
    "fieldname": "row_id",
@@ -89,6 +96,7 @@
    "fieldtype": "Link",
    "label": "Ref DocType",
    "options": "DocType",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -96,13 +104,15 @@
    "fieldtype": "Dynamic Link",
    "label": "Ref DocName",
    "options": "ref_doctype",
+   "read_only": 1,
    "reqd": 1
   },
   {
    "default": "0",
    "fieldname": "role",
    "fieldtype": "Check",
-   "label": "Assign Role"
+   "label": "Assign Role",
+   "read_only": 1
   },
   {
    "depends_on": "role",
@@ -110,11 +120,13 @@
    "fieldtype": "Link",
    "label": "Role Name",
    "mandatory_depends_on": "role",
-   "options": "Role"
+   "options": "Role",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_12",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Apply On"
   },
   {
    "fieldname": "section_break_3",
@@ -132,9 +144,10 @@
    "read_only": 1
   }
  ],
+ "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-11-12 11:56:39.183616",
+ "modified": "2021-11-12 12:59:58.360832",
  "modified_by": "Administrator",
  "module": "Permission",
  "name": "Permission Record",
