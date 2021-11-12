@@ -8,13 +8,20 @@
  "field_order": [
   "user",
   "user_name",
-  "permission_rule",
-  "doctype_name",
-  "docname",
   "column_break_6",
+  "posting_date",
+  "section_break_3",
   "share",
   "permission",
   "assign",
+  "role",
+  "role_name",
+  "column_break_13",
+  "ref_doctype",
+  "ref_docname",
+  "doctype_name",
+  "docname",
+  "section_break_12",
   "row_id"
  ],
  "fields": [
@@ -28,22 +35,12 @@
    "reqd": 1
   },
   {
-   "fieldname": "permission_rule",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Permission Rule",
-   "options": "Permission Rule",
-   "reqd": 1
-  },
-  {
    "fieldname": "doctype_name",
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "DocType",
-   "options": "DocType",
-   "reqd": 1
+   "options": "DocType"
   },
   {
    "fieldname": "docname",
@@ -51,8 +48,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "DocName",
-   "options": "doctype_name",
-   "reqd": 1
+   "options": "doctype_name"
   },
   {
    "default": "0",
@@ -82,17 +78,63 @@
    "fieldname": "row_id",
    "fieldtype": "Data",
    "label": "Row ID",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "column_break_6",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ref_doctype",
+   "fieldtype": "Link",
+   "label": "Ref DocType",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ref_docname",
+   "fieldtype": "Dynamic Link",
+   "label": "Ref DocName",
+   "options": "ref_doctype",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "role",
+   "fieldtype": "Check",
+   "label": "Assign Role"
+  },
+  {
+   "depends_on": "role",
+   "fieldname": "role_name",
+   "fieldtype": "Link",
+   "label": "Role Name",
+   "mandatory_depends_on": "role",
+   "options": "Role"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_date",
+   "fieldtype": "Datetime",
+   "label": "Posting Date",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-11-02 05:17:32.313611",
+ "modified": "2021-11-12 11:56:39.183616",
  "modified_by": "Administrator",
  "module": "Permission",
  "name": "Permission Record",

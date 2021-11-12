@@ -57,7 +57,7 @@ class PermissionRule(Document):
     def delete_permissions(self):
         to_remove = frappe.get_all(
             "Permission Record",
-            filters={"permission_rule": self.name},
+            filters={"ref_doctype": "Permission Rule", "ref_docname": self.name},
         )
         for rec in to_remove:
             frappe.delete_doc(
@@ -67,6 +67,7 @@ class PermissionRule(Document):
     def create_permissions(self):
         if self.disabled:
             return
+        frappe.msgprint(self.name)
         for doctype in self.doctypes:
             rows = frappe.get_all(
                 "Permission Detail",
@@ -78,6 +79,12 @@ class PermissionRule(Document):
                 fields=["parent", "name"],
             )
             for row in rows:
+                frappe.msgprint(str(row))
                 add_permission_record(
-                    self.name, row.name, doctype.doctype_name, row.parent, self
+                    "Permission Rule",
+                    self.name,
+                    row.name,
+                    doctype.doctype_name,
+                    row.parent,
+                    self,
                 )

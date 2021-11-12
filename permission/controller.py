@@ -34,7 +34,11 @@ def process_permissions(doc, method):
                 )
                 if len(exist_permission_record) == 0:
                     add_permission_record(
-                        permissions_map.get(row), row, doc.doctype, doc.name
+                        "Permission Rule",
+                        permissions_map.get(row),
+                        row,
+                        doc.doctype,
+                        doc.name,
                     )
         for rec in to_remove:
             frappe.delete_doc(
@@ -42,24 +46,30 @@ def process_permissions(doc, method):
             )
 
 
-def add_permission_record(rule_name, row_id, doctype_name, docmame, rule_doc=None):
-    if not rule_doc:
-        rule_doc = frappe.get_doc("Permission Rule", rule_name)
-    if rule_doc.disabled:
-        return
-    doctype_options = next(
-        (i for i in rule_doc.doctypes if i.doctype_name == doctype_name), None
-    )
-    if not doctype_options:
-        return
-    for user in rule_doc.users:
-        record_doc = frappe.new_doc("Permission Record")
-        record_doc.user = user.user
-        record_doc.row_id = row_id
-        record_doc.permission_rule = rule_name
-        record_doc.doctype_name = doctype_name
-        record_doc.docname = docmame
-        record_doc.share = doctype_options.get("share")
-        record_doc.permission = doctype_options.get("permission")
-        record_doc.assign = doctype_options.get("assign")
-        record_doc.insert(ignore_permissions=True)
+def add_permission_record(
+    ref_doctype, ref_docname, row_id, doctype_name, docmame, rule_doc=None
+):
+    if ref_doctype == "Permission Rule":
+        if not rule_doc:
+            rule_doc = frappe.get_doc("Permission Rule", ref_docname)
+        if rule_doc.disabled:
+            return
+        doctype_options = next(
+            (i for i in rule_doc.doctypes if i.doctype_name == doctype_name), None
+        )
+        if not doctype_options:
+            return
+        for user in rule_doc.users:
+            record_doc = frappe.new_doc("Permission Record")
+            record_doc.user = user.user
+            record_doc.row_id = row_id
+            record_doc.ref_doctype = ref_doctype
+            record_doc.ref_docname = ref_docname
+            record_doc.doctype_name = doctype_name
+            record_doc.docname = docmame
+            record_doc.share = doctype_options.get("share")
+            record_doc.permission = doctype_options.get("permission")
+            record_doc.assign = doctype_options.get("assign")
+            record_doc.role = doctype_options.get("role")
+            record_doc.role_name = doctype_options.get("role_name")
+            record_doc.insert(ignore_permissions=True)

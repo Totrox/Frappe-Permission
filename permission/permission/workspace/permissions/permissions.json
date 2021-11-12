@@ -13,7 +13,7 @@
  "is_standard": 1,
  "label": "Permissions",
  "links": [],
- "modified": "2021-11-02 06:14:03.264818",
+ "modified": "2021-11-12 11:03:19.477984",
  "modified_by": "Administrator",
  "module": "Permission",
  "name": "Permissions",
@@ -31,6 +31,24 @@
    "doc_view": "",
    "label": "Permission Record",
    "link_to": "Permission Record",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Role Level Profile",
+   "link_to": "Role Level Profile",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Role Permission Profile",
+   "link_to": "Role Permission Profile",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Role User Permission Assignment",
+   "link_to": "Role User Permission Assignment",
    "type": "DocType"
   }
  ]
