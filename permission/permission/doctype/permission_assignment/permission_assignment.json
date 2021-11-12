@@ -12,8 +12,6 @@
   "role",
   "role_level_controlled_user_permissions_section",
   "role_permission_profile_detail",
-  "section_break_8",
-  "disabled",
   "section_break_10",
   "amended_from"
  ],
@@ -51,17 +49,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "section_break_8",
-   "fieldtype": "Section Break"
-  },
-  {
-   "allow_on_submit": 1,
-   "default": "0",
-   "fieldname": "disabled",
-   "fieldtype": "Check",
-   "label": "Disabled"
-  },
-  {
    "fieldname": "section_break_10",
    "fieldtype": "Section Break"
   },
@@ -78,7 +65,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-11-12 11:04:16.055028",
+ "modified": "2021-11-12 20:49:35.119486",
  "modified_by": "Administrator",
  "module": "Permission",
  "name": "Permission Assignment",
