@@ -7,9 +7,6 @@ from frappe.model.document import Document
 from frappe.desk.form.assign_to import add as add_assign_to, remove as remove_todo
 
 
-# from frappe.share import add as add_share
-
-
 class PermissionRecord(Document):
     def validate(self):
         self.validate_options()

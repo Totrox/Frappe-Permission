@@ -62,7 +62,7 @@
  "modified": "2021-11-10 21:16:07.012319",
  "modified_by": "Administrator",
  "module": "Permission",
- "name": "Role Level Profile",
+ "name": "Role Level Policy",
  "owner": "Administrator",
  "permissions": [
   {

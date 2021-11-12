@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestRoleLevelProfile(unittest.TestCase):
+class TestRoleLevelPolicy(unittest.TestCase):
 	pass
