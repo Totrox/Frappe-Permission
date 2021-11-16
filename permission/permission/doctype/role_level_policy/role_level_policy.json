@@ -32,9 +32,8 @@
   {
    "fieldname": "role_permission_profile_detail",
    "fieldtype": "Table",
-   "label": "Role Permission Profile Detail",
-   "options": "Role Permission Profile Detail",
-   "reqd": 1
+   "label": "Role Permission Profile Required",
+   "options": "Role Permission Profile Detail"
   },
   {
    "fieldname": "section_break_4",
@@ -59,7 +58,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-11-10 21:16:07.012319",
+ "modified": "2021-11-16 09:49:35.123135",
  "modified_by": "Administrator",
  "module": "Permission",
  "name": "Role Level Policy",

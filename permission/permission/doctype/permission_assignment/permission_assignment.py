@@ -87,8 +87,15 @@ class PermissionAssignment(Document):
                 self.add_permission_record(
                     doctype_name=row.doctype_name, docname=row.docname
                 )
-            if frappe.db.exists("Role Permission Profile", self.role):
-                profile = frappe.get_doc("Role Permission Profile", self.role)
+            profiles_list = frappe.get_all(
+                "Role Permission Profile",
+                filters={"docstatus": 1, "role": self.role},
+                limit=1,
+            )
+            if len(profiles_list) > 0:
+                profile = frappe.get_doc(
+                    "Role Permission Profile", profiles_list[0].name
+                )
                 for row in profile.role_permission_profile_detail:
                     self.add_permission_record(
                         doctype_name=row.doctype_name, docname=row.docname
