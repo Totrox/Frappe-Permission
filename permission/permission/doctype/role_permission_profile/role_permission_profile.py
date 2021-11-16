@@ -69,5 +69,5 @@ def add_permission_record(user, doctype_name, docname, ref_docname):
     record_doc.ref_docname = ref_docname
     record_doc.doctype_name = doctype_name
     record_doc.docname = docname
-    record_doc.permission = docname
+    record_doc.permission = 1
     record_doc.insert(ignore_permissions=True)
