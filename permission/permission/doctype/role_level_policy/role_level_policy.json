@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:role",
+ "creation": "2021-11-10 19:59:14.832358",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "role",
+  "section_break_2",
+  "role_permission_profile_detail",
+  "section_break_4",
+  "number_of_actors",
+  "column_break_6",
+  "overlappable"
+ ],
+ "fields": [
+  {
+   "fieldname": "role",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Role",
+   "options": "Role",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "role_permission_profile_detail",
+   "fieldtype": "Table",
+   "label": "Role Permission Profile Required",
+   "options": "Role Permission Profile Detail"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "number_of_actors",
+   "fieldtype": "Int",
+   "label": "Number of Actors"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "overlappable",
+   "fieldtype": "Check",
+   "label": "Overlappable"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-11-16 09:49:35.123135",
+ "modified_by": "Administrator",
+ "module": "Permission",
+ "name": "Role Level Policy",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

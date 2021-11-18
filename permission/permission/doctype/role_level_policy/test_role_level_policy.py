@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestPermissionRecord(unittest.TestCase):
+class TestRoleLevelPolicy(unittest.TestCase):
 	pass

@@ -1,6 +1,6 @@
 {
  "actions": [],
- "allow_rename": 1,
+ "allow_copy": 1,
  "creation": "2021-11-02 02:30:59.793644",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -8,13 +8,20 @@
  "field_order": [
   "user",
   "user_name",
-  "permission_rule",
-  "doctype_name",
-  "docname",
   "column_break_6",
+  "posting_date",
+  "section_break_3",
   "share",
   "permission",
   "assign",
+  "role",
+  "role_name",
+  "column_break_13",
+  "ref_doctype",
+  "ref_docname",
+  "section_break_12",
+  "docname",
+  "doctype_name",
   "row_id"
  ],
  "fields": [
@@ -25,15 +32,7 @@
    "in_standard_filter": 1,
    "label": "User",
    "options": "User",
-   "reqd": 1
-  },
-  {
-   "fieldname": "permission_rule",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Permission Rule",
-   "options": "Permission Rule",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -43,7 +42,7 @@
    "in_standard_filter": 1,
    "label": "DocType",
    "options": "DocType",
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "docname",
@@ -52,63 +51,116 @@
    "in_standard_filter": 1,
    "label": "DocName",
    "options": "doctype_name",
-   "reqd": 1
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "share",
    "fieldtype": "Check",
-   "label": "Share With User"
+   "label": "Share With User",
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "permission",
    "fieldtype": "Check",
-   "label": "Create User Permission"
+   "label": "Create User Permission",
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "assign",
    "fieldtype": "Check",
-   "label": "Assign To User"
+   "label": "Assign To User",
+   "read_only": 1
   },
   {
    "fetch_from": "user.full_name",
    "fieldname": "user_name",
    "fieldtype": "Read Only",
-   "label": "User Name"
+   "label": "User Name",
+   "read_only": 1
   },
   {
    "fieldname": "row_id",
    "fieldtype": "Data",
    "label": "Row ID",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "column_break_6",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ref_doctype",
+   "fieldtype": "Link",
+   "label": "Ref DocType",
+   "options": "DocType",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "ref_docname",
+   "fieldtype": "Dynamic Link",
+   "label": "Ref DocName",
+   "options": "ref_doctype",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "role",
+   "fieldtype": "Check",
+   "label": "Assign Role",
+   "read_only": 1
+  },
+  {
+   "depends_on": "role",
+   "fieldname": "role_name",
+   "fieldtype": "Link",
+   "label": "Role Name",
+   "mandatory_depends_on": "role",
+   "options": "Role",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break",
+   "label": "Apply On"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_date",
+   "fieldtype": "Datetime",
+   "label": "Posting Date",
+   "read_only": 1
   }
  ],
+ "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-11-02 05:17:32.313611",
+ "modified": "2021-11-16 23:49:05.242641",
  "modified_by": "Administrator",
  "module": "Permission",
  "name": "Permission Record",
  "owner": "Administrator",
  "permissions": [
   {
-   "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
+   "share": 1
   }
  ],
  "sort_field": "modified",
