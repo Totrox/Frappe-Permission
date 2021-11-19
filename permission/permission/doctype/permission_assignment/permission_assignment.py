@@ -54,13 +54,14 @@ class PermissionAssignment(Document):
                         _("This User can't have more than one Permission Assignment")
                     )
 
+            permissions_dict = {}
+            for row in policy.role_permission_profile_detail:
+                permissions_dict.setdefault(row.doctype_name, [])
+                if row.docname not in permissions_dict[row.doctype_name]:
+                    permissions_dict[row.doctype_name].append(row.docname)
+
             for perm in self.role_permission_profile_detail:
                 doc = frappe.get_doc(perm.doctype_name, perm.docname)
-                permissions_dict = {}
-                for row in policy.role_permission_profile_detail:
-                    permissions_dict.setdefault(row.doctype_name, [])
-                    if row.docname not in permissions_dict[row.doctype_name]:
-                        permissions_dict[row.doctype_name].append(row.docname)
                 for key, value in permissions_dict.items():
                     fields = doc.meta.get(
                         "fields", {"fieldtype": "Link", "options": key}
